@@ -1,6 +1,7 @@
 import {MDXRemote, MDXRemoteSerializeResult} from "next-mdx-remote";
-import {components} from "@/pages/_app";
+import mdxComponents from "@/mdxComponents";
+import MDXWrapper from "@/components/MDXWrapper";
 
 export default function MDXRemoteProvider({source}: { source: MDXRemoteSerializeResult }) {
-    return <MDXRemote {...source} components={components}/>
+    return <MDXRemote {...source} components={{...mdxComponents, wrapper: MDXWrapper}}/>
 }

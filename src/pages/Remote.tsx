@@ -5,9 +5,14 @@ import {readFile} from "fs/promises";
 import future, {Future} from "@/future";
 import Travel from "@/components/Travel";
 import MDXRemoteProvider from "@/components/MDXRemoteProvider";
+import Main from "@/components/Main";
 
 export default function Remote({source}: { source: Future<MDXRemoteSerializeResult> }) {
-    return <Travel future={source} component={MDXRemoteProvider} field="source"/>
+    return (
+        <Main>
+            <Travel future={source} component={MDXRemoteProvider} field="source"/>
+        </Main>
+    )
 }
 
 export async function getStaticProps() {

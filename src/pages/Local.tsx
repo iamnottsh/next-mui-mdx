@@ -7,13 +7,20 @@ import mdxOptions from "../../mdxOptions.mjs";
 import future, {Future} from "@/future";
 import MDXRemoteProvider from "@/components/MDXRemoteProvider";
 import Travel from "@/components/Travel";
+import Main from "@/components/Main";
 
 export default function Local({file}: { file: string }) {
     const [source, setSource] = useState<Future<MDXRemoteSerializeResult>>()
     useEffect(() => {
         future(serialize(file, {mdxOptions})).then(setSource)
     }, [file])
-    return source ? <Travel future={source} component={MDXRemoteProvider} field="source"/> : <LinearProgress/>
+    return (
+        <Main>
+            {source ?
+                <Travel future={source} component={MDXRemoteProvider} field="source"/> :
+                <LinearProgress/>}
+        </Main>
+    )
 }
 
 export async function getStaticProps() {
