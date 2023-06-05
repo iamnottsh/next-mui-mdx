@@ -1,5 +1,6 @@
 import {ReactNode} from "react";
 import {Container, Paper, useTheme} from "@mui/material";
+import "katex/dist/katex.min.css";
 
 const thLight = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css'
 const thDark = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css'
