@@ -7,6 +7,13 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {MDXProvider} from "@mdx-js/react"
 import MDX from "@/components/MDX";
+import {Components} from "@mdx-js/react/lib";
+import Counter from "@/components/Counter";
+
+export const components: Components = {
+    wrapper: MDX,
+    Counter,
+}
 
 export default function App({Component, pageProps}: AppProps) {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
@@ -25,7 +32,7 @@ export default function App({Component, pageProps}: AppProps) {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            <MDXProvider components={{wrapper: MDX}}>
+            <MDXProvider components={components}>
                 <Component {...pageProps}/>
             </MDXProvider>
         </ThemeProvider>
