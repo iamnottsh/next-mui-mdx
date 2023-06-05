@@ -10,7 +10,6 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import {visit} from "unist-util-visit";
-// import {remove} from "unist-util-remove";
 
 /**
  * @type {import("@mdx-js/loader/lib").CompileOptions}
@@ -30,7 +29,7 @@ export default {
         [remarkToc, {heading: '目录'}],
         remarkMath,
     ],
-    remarkRehypeOptions: {footnoteLabel: '脚注', footnoteBackLabel: '回到正文'},
+    remarkRehypeOptions: {clobberPrefix: '', footnoteLabel: '脚注', footnoteBackLabel: '回到正文'},
     rehypePlugins: [
         rehypeKatex,
         rehypeMermaid,
