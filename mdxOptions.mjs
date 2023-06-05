@@ -31,4 +31,5 @@ export default {
         [rehypeHighlight, {ignoreMissing: true}],
     ],
     providerImportSource: "@mdx-js/react",
+    development: process.env.NODE_ENV === 'development',
 }
