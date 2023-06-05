@@ -9,7 +9,8 @@ import rehypeMermaid from "rehype-mermaidjs";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
-import {remove} from "unist-util-remove";
+import {visit} from "unist-util-visit";
+// import {remove} from "unist-util-remove";
 
 /**
  * @type {import("@mdx-js/loader/lib").CompileOptions}
@@ -17,7 +18,9 @@ import {remove} from "unist-util-remove";
 export default {
     remarkPlugins: [
         () => tree => {
-            remove(tree, {type: 'mdxJsxFlowElement', name: 'iframe'})
+            visit(tree, {type: 'mdxJsxFlowElement', name: 'iframe'}, node => {
+                node.attributes?.push({type: 'mdxJsxAttribute', name: 'sandbox', value: 'allow-scripts'})
+            })
             return tree
         },
         [remarkFrontmatter, ['yaml', 'toml']],
