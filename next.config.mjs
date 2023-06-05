@@ -1,6 +1,8 @@
 import nextMDX from "@next/mdx";
 import remarkFrontmatter from "remark-frontmatter";
+import remarkFootnotes from "remark-footnotes";
 import remarkGfm from "remark-gfm";
+import remarkSupersub from "remark-supersub";
 import remarkToc from "remark-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
@@ -14,7 +16,9 @@ const withMDX = nextMDX({
     options: {
         remarkPlugins: [
             [remarkFrontmatter, ['yaml', 'toml']],
+            [remarkFootnotes, {inlineNotes: true}],
             [remarkGfm, {singleTilde: false}],
+            remarkSupersub,
             [remarkToc, {heading: '目录'}],
             remarkMath,
         ],
