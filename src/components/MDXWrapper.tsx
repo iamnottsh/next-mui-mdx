@@ -3,10 +3,6 @@ import {Paper} from "@mui/material";
 import "katex/dist/katex.min.css";
 import mermaid from "mermaid";
 
-function get() {
-
-}
-
 mermaid.initialize({startOnLoad: false})
 export default function MDXWrapper({children}: { children?: ReactNode }) {
     return (
