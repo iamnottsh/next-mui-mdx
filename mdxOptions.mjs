@@ -5,7 +5,6 @@ import remarkSupersub from "remark-supersub";
 import remarkToc from "remark-toc";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-import rehypeMermaid from "rehype-mermaidjs";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
@@ -32,7 +31,6 @@ export default {
     remarkRehypeOptions: {clobberPrefix: '', footnoteLabel: '脚注', footnoteBackLabel: '回到正文'},
     rehypePlugins: [
         rehypeKatex,
-        rehypeMermaid,
         rehypeSlug,
         [rehypeAutolinkHeadings, {content: {type: 'text', value: '¶'}}],
         [rehypeHighlight, {ignoreMissing: true}],
