@@ -8,19 +8,12 @@ import rehypeKatex from "rehype-katex";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
-import {visit} from "unist-util-visit";
 
 /**
  * @type {import("@mdx-js/loader/lib").CompileOptions}
  */
 export default {
     remarkPlugins: [
-        () => tree => {
-            visit(tree, {type: 'mdxJsxFlowElement', name: 'iframe'}, node => {
-                node.attributes?.push({type: 'mdxJsxAttribute', name: 'sandbox', value: 'allow-scripts'})
-            })
-            return tree
-        },
         [remarkFrontmatter, ['yaml', 'toml']],
         [remarkFootnotes, {inlineNotes: true}],
         [remarkGfm, {singleTilde: false}],
