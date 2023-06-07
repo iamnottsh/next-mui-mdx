@@ -1,10 +1,8 @@
-import {serialize} from 'next-mdx-remote/serialize'
 import {MDXRemoteSerializeResult} from 'next-mdx-remote'
 import {readFile} from "fs/promises";
 import {useEffect, useState} from "react";
 import {LinearProgress} from "@mui/material";
-import mdxOptions from "../../mdxOptions.mjs";
-import future, {Future} from "@/future";
+import {Future} from "@/future";
 import MDXRemoteProvider from "@/components/MDXRemoteProvider";
 import Travel from "@/components/Travel";
 import Main from "@/components/Main";

@@ -1,6 +1,4 @@
-import {serialize} from 'next-mdx-remote/serialize'
 import {MDXRemoteSerializeResult} from 'next-mdx-remote'
-import mdxOptions from "../../mdxOptions.mjs";
 import {readFile} from "fs/promises";
 import future, {Future} from "@/future";
 import Travel from "@/components/Travel";
