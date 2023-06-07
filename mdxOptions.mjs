@@ -9,9 +9,6 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 
-/**
- * @type {import("@mdx-js/loader/lib").CompileOptions}
- */
 export default {
     remarkPlugins: [
         [remarkFrontmatter, ['yaml', 'toml']],
