@@ -2,14 +2,14 @@ import {MDXRemoteSerializeResult} from 'next-mdx-remote'
 import {readFile} from "fs/promises";
 import future, {Future} from "@/future";
 import Travel from "@/components/Travel";
-import MDXRemoteProvider from "@/components/MDXRemoteProvider";
+import MDXProvider from "@/components/MDXProvider";
 import Main from "@/components/Main";
 import mdxSerialize from "@/mdxSerialize";
 
-export default function Remote({source}: { source: Future<MDXRemoteSerializeResult> }) {
+export default function ServerMDX({source}: { source: Future<MDXRemoteSerializeResult> }) {
     return (
         <Main>
-            <Travel future={source} component={MDXRemoteProvider} field="source"/>
+            <Travel future={source} component={MDXProvider} field="source"/>
         </Main>
     )
 }

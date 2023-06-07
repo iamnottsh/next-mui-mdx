@@ -6,9 +6,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import {MDXProvider} from "@mdx-js/react"
-import mdxComponents from "@/mdxComponents";
+import markComponents from "@/markComponents";
 import Main from "@/components/Main";
-import MDXWrapper from "@/components/MDXWrapper";
+import MarkWrapper from "@/components/MarkWrapper";
 
 const 浅色主题 = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css';
 const 深色主题 = 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css'
@@ -40,7 +40,7 @@ export default function App({Component, pageProps}: AppProps) {
                 <link rel="stylesheet" href={浅色高亮}/>
             </>}
             <MDXProvider components={{
-                ...mdxComponents,
+                ...markComponents,
                 wrapper: MainMDXWrapper
             }}>
                 <Component {...pageProps}/>
@@ -52,9 +52,9 @@ export default function App({Component, pageProps}: AppProps) {
 function MainMDXWrapper({children}: { children?: ReactNode }) {
     return (
         <Main>
-            <MDXWrapper>
+            <MarkWrapper>
                 {children}
-            </MDXWrapper>
+            </MarkWrapper>
         </Main>
     )
 }

@@ -1,9 +1,9 @@
 import nextMDX from "@next/mdx";
-import mdxOptions from "./mdxOptions.mjs";
+import markOptions from "./markOptions.mjs";
 
 const withMDX = nextMDX({
     extension: /\.mdx?$/,
-    options: mdxOptions,
+    options: markOptions,
 })
 
 /** @type {import('next').NextConfig} */
@@ -12,4 +12,5 @@ const nextConfig = {
     reactStrictMode: true,
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default withMDX(nextConfig)

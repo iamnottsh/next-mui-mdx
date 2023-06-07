@@ -3,7 +3,7 @@ import {Paper, useTheme} from "@mui/material";
 import "katex/dist/katex.min.css";
 import mermaid from "mermaid";
 
-export default function MDXWrapper({children}: { children?: ReactNode }) {
+export default function MarkWrapper({children}: { children?: ReactNode }) {
     const dark = useTheme().palette.mode === 'dark'
     const ref = useRef<HTMLDivElement | null>()
     const pro = useRef(Promise.resolve())

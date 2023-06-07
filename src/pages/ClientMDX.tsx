@@ -3,12 +3,12 @@ import {readFile} from "fs/promises";
 import {useEffect, useState} from "react";
 import {LinearProgress} from "@mui/material";
 import {Future} from "@/future";
-import MDXRemoteProvider from "@/components/MDXRemoteProvider";
+import MDXProvider from "@/components/MDXProvider";
 import Travel from "@/components/Travel";
 import Main from "@/components/Main";
 import mdxSerialize from "@/mdxSerialize";
 
-export default function Local({file}: { file: string }) {
+export default function ClientMDX({file}: { file: string }) {
     const [source, setSource] = useState<Future<MDXRemoteSerializeResult>>()
     useEffect(() => {
         mdxSerialize(file).then(setSource)
@@ -16,7 +16,7 @@ export default function Local({file}: { file: string }) {
     return (
         <Main>
             {source ?
-                <Travel future={source} component={MDXRemoteProvider} field="source"/> :
+                <Travel future={source} component={MDXProvider} field="source"/> :
                 <LinearProgress/>}
         </Main>
     )
