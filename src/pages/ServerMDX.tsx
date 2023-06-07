@@ -1,6 +1,6 @@
 import {MDXRemoteSerializeResult} from 'next-mdx-remote'
 import {readFile} from "fs/promises";
-import future, {Future} from "@/future";
+import {Future} from "@/future";
 import Travel from "@/components/Travel";
 import MDXProvider from "@/components/MDXProvider";
 import Main from "@/components/Main";
@@ -15,6 +15,5 @@ export default function ServerMDX({source}: { source: Future<MDXRemoteSerializeR
 }
 
 export async function getStaticProps() {
-    const mdxSource = mdxSerialize(await readFile('src/pages/index.mdx', {encoding: 'utf8'}))
-    return {props: {source: await future(mdxSource)}}
+    return {props: {source: await mdxSerialize(await readFile('src/pages/index.mdx', {encoding: 'utf8'}))}}
 }

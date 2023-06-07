@@ -23,6 +23,5 @@ export default function ClientMDX({file}: { file: string }) {
 }
 
 export async function getStaticProps() {
-    const mdxFile = await readFile('src/pages/index.mdx', {encoding: 'utf8'})
-    return {props: {file: mdxFile}}
+    return {props: {file: await readFile('src/pages/index.mdx', {encoding: 'utf8'})}}
 }
