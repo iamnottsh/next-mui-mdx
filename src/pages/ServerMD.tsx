@@ -4,9 +4,9 @@ import {Future} from "@/future";
 import Travel from "@/components/Travel";
 import MarkProvider from "@/components/MarkProvider";
 import Main from "@/components/Main";
-import serializeMDX from "@/serializeMDX";
+import serializeMD from "@/serializeMD";
 
-export default function ServerMDX({source}: { source: Future<MDXRemoteSerializeResult> }) {
+export default function ServerMD({source}: { source: Future<MDXRemoteSerializeResult> }) {
     return (
         <Main>
             <Travel future={source} component={MarkProvider} field="source"/>
@@ -15,5 +15,5 @@ export default function ServerMDX({source}: { source: Future<MDXRemoteSerializeR
 }
 
 export async function getStaticProps() {
-    return {props: {source: await serializeMDX(await readFile('src/pages/index.mdx', {encoding: 'utf8'}))}}
+    return {props: {source: await serializeMD(await readFile('src/pages/index.mdx', {encoding: 'utf8'}))}}
 }

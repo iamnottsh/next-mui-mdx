@@ -6,12 +6,12 @@ import {Future} from "@/future";
 import MarkProvider from "@/components/MarkProvider";
 import Travel from "@/components/Travel";
 import Main from "@/components/Main";
-import serializeMDX from "@/serializeMDX";
+import serializeMD from "@/serializeMD";
 
-export default function ClientMDX({file}: { file: string }) {
+export default function ClientMD({file}: { file: string }) {
     const [source, setSource] = useState<Future<MDXRemoteSerializeResult>>()
     useEffect(() => {
-        serializeMDX(file).then(setSource)
+        serializeMD(file).then(setSource)
     }, [file])
     return (
         <Main>
