@@ -6,6 +6,7 @@ import future, {Future} from "@/future";
 import Travel from "@/components/Travel";
 import MDXRemoteProvider from "@/components/MDXRemoteProvider";
 import Main from "@/components/Main";
+import mdxSerialize from "@/mdxSerialize";
 
 export default function Remote({source}: { source: Future<MDXRemoteSerializeResult> }) {
     return (
@@ -16,6 +17,6 @@ export default function Remote({source}: { source: Future<MDXRemoteSerializeResu
 }
 
 export async function getStaticProps() {
-    const mdxSource = serialize(await readFile('src/pages/index.mdx', {encoding: 'utf8'}), {mdxOptions})
+    const mdxSource = mdxSerialize(await readFile('src/pages/index.mdx', {encoding: 'utf8'}))
     return {props: {source: await future(mdxSource)}}
 }

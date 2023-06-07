@@ -8,11 +8,12 @@ import future, {Future} from "@/future";
 import MDXRemoteProvider from "@/components/MDXRemoteProvider";
 import Travel from "@/components/Travel";
 import Main from "@/components/Main";
+import mdxSerialize from "@/mdxSerialize";
 
 export default function Local({file}: { file: string }) {
     const [source, setSource] = useState<Future<MDXRemoteSerializeResult>>()
     useEffect(() => {
-        future(serialize(file, {mdxOptions})).then(setSource)
+        mdxSerialize(file).then(setSource)
     }, [file])
     return (
         <Main>
