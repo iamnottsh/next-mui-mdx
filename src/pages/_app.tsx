@@ -41,18 +41,20 @@ export default function App({Component, pageProps}: AppProps) {
             </>}
             <MDXProvider components={{
                 ...mdxComponents,
-                wrapper({children}: { children?: ReactNode }) {
-                    return (
-                        <Main>
-                            <MDXWrapper>
-                                {children}
-                            </MDXWrapper>
-                        </Main>
-                    )
-                }
+                wrapper: MainMDXWrapper
             }}>
                 <Component {...pageProps}/>
             </MDXProvider>
         </ThemeProvider>
+    )
+}
+
+function MainMDXWrapper({children}: { children?: ReactNode }) {
+    return (
+        <Main>
+            <MDXWrapper>
+                {children}
+            </MDXWrapper>
+        </Main>
     )
 }
