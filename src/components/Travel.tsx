@@ -19,8 +19,10 @@ function Reason({name, message, stack}: { name: string, message: string, stack?:
     error.message = message
     error.stack = `${error.stack ?? ''}${stack ?? ''}`
     console.error(error)
-    return <Alert severity="error">
-        <AlertTitle>{name}</AlertTitle>
-        <pre>{message}</pre>
-    </Alert>
+    return (
+        <Alert severity="error">
+            <AlertTitle>{name}</AlertTitle>
+            <pre>{message}</pre>
+        </Alert>
+    )
 }
